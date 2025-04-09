@@ -81,7 +81,7 @@
 ## Installation (Locally)
 
 ```bash
-git clone https://github.com/yourusername/animelord-bot.git
+[git clone https://github.com/yourusername/animelord-bot.git](https://github.com/whoami847/Anime-Lord)
 cd animelord-bot
 pip install -r requirements.txt
 python bot.py
