@@ -1,20 +1,16 @@
 # File: AnimeLordBot/main.py
-from config.config import Config
-from modules import register_handlers
+from pyrogram import Client
+import os
+from dotenv import load_dotenv
 
-from pyrogram import Client, idle
+load_dotenv()
 
-bot = Client(
-    "AnimeLordBot",
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    bot_token=Config.BOT_TOKEN
-)
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-register_handlers(bot)
+app = Client("AnimeLordBot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN, plugins={"root": "modules"})
 
-print("Bot is running...")
-
-bot.start()
-idle()
-bot.stop()
+if __name__ == "__main__":
+    print("Bot is starting...")
+    app.run()
